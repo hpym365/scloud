@@ -1,0 +1,6 @@
+server:
+  port: 1234 #http://localhost:1234/
+eureka:
+  client:
+    register-with-eureka: false # 该实例是否在eureka中注册 本身是注册中心不需要注册
+    fetch-registry: false # 是否需要从eureka里获取注册的信息 见EurekaClientCOnfigBean

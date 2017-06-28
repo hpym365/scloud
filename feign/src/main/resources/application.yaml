@@ -1,0 +1,19 @@
+server:
+  port: 5005
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1234/eureka
+    registry-fetch-interval-seconds: 5
+    initial-instance-info-replication-interval-seconds: 5
+    instance-info-replication-interval-seconds: 5
+spring:
+  application:
+    name: feign
+# 此参数必须设置
+feign:
+  hystrix:
+    enabled: true
+
+# 通过不同的key设置不同微服务的超时时间 hystrix.command.[CommandKey].execution.isolation.thread.timeoutInMilliseconds
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000 #服务请求超时时间

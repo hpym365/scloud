@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${msg}"></p>
+<form th:action="@{/login}"  method="post" th:method="post">
+
+    <input type="text" name="username" id="username" th:value="${username}"/>
+    <input type="text" name="password" th:value="${password}"/>
+
+    <input type="submit"/>
+
+    <a th:if="${login}" th:href="${path}">跳转</a>
+    <p th:text="${path}"></p>
+
+</form>
+
+
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: zuul-gate
+zuul:
+  routes:
+    feign:  /feign/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1234/eureka
+
+#服务请求超时call hystrix时间 zuul的超时时间应该比feign+RTT的高
+# 通过不同的key设置不同微服务的超时时间 hystrix.command.[CommandKey].execution.isolation.thread.timeoutInMilliseconds
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5100
+# zuul 分发通过ribbon  还要设置ribbon的
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 5100
+
